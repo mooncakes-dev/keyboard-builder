@@ -38,7 +38,100 @@ As an added feature, we might have a list of the group buys that are coming up, 
 
 ## Class Diagram
 
+[class diagram](https://github.com/mooncakes-dev/keyboard-builder/blob/master/UML.PNG)
+
 ## JSON Schema
+``` javascript
+{
+  "id": "http://keyboardbuilder.com",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Build your own keyboard",
+  "description": "Choose your keyboard parts and build extractly what you want, how you want",
+  "$ref": "#/definitions/Welcome",
+  "definitions": {
+      "Welcome": { 
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "keyboard" : {
+                  "type" : "array",
+                  "items" : {
+                      "#/definitions/keyboard"
+                      "#/definitions/pcb"
+                      "#/definitions/plate"
+                      "#/definitions/switches"
+                  }
+              }
+          },
+          "required" : [
+              "keyboard"
+              ],
+              "title": "Welcome"
+      },
+      "Keyboard" : {
+          "type": "object",
+          "addtionalProperties": false,
+          "properties": {
+              "material": {
+                  "type": "String"
+              },
+              "layout": {
+                  "type": "Integer"
+              },
+          }
+      }
+      "PCB" : {
+          "type": "object",
+          "addtionalProperties": false,
+          "properties": {
+              "type": {
+                  "type": "String"
+                  
+              },
+              "layout": {
+                  "type": "Integer"
+              },
+              "brand": {
+                  "type": "String"
+              },
+              "hot-swap": {
+                  "type": "boolean"
+              },
+          }
+      }
+      "Switches" : {
+          "type": "object",
+          "addtionalProperties": false,
+          "properties": {
+              "type": {
+                  "type": "String"
+              },
+              "weight": {
+                  "type": "Integer"
+              },
+              "brand": {
+                  "type": "String"
+              },
+              "color": {
+                  "type": "String"
+              },
+          }
+      }
+      "Plate" : {
+          "type": "object",
+          "addtionalProperties": false,
+          "properties": {
+              "material" : {
+              "type": "String"
+              },
+              "layout": {
+                  "type": "Integer"
+              },
+          }
+      }
+  }
+}
+```
 
 ## Scrum Roles
 
