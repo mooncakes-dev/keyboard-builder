@@ -22,6 +22,17 @@ public class KeyboardBuilderController {
     }
 
     /**
+     * Handle create build (/create-build) endpoint and return a guides page
+     * @return *
+     */
+
+    @RequestMapping("/create-build")
+
+    public String createBuild() {
+        return "create-build";
+    }
+
+    /**
      * Handle guides (/guides) endpoint and return a guides page
      * @return *
      */
