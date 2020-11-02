@@ -33,6 +33,17 @@ public class KeyboardBuilderController {
     }
 
     /**
+     * Handle guides (/add-new-build) endpoint and return a guides page
+     * @return *
+     */
+
+    @RequestMapping("/add-new-build")
+
+    public String addNewBuild() {
+        return "add-new-build";
+    }
+
+    /**
      * Handle a group buy page for keycaps (/keycaps-group-buy) endpoint and returns appropriate group buys
      * @return *
      */
