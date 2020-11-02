@@ -1,6 +1,6 @@
 package com.keyboardbuilder.enterprise;
 
-import com.keyboardbuilder.enterprise.dto.KeyboardBuild;
+import com.keyboardbuilder.enterprise.dto.Build;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +15,7 @@ public class KeyboardBuilderController {
     @RequestMapping("/")
 
     public String index() {
-        KeyboardBuild build = new KeyboardBuild();
+        Build build = new Build();
         build.setKeySwitches("Liner Cream");
         String keySwitches = build.getKeySwitches();
         return "start";

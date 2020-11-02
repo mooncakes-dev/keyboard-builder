@@ -1,6 +1,6 @@
 package com.keyboardbuilder.enterprise.dao;
 
-import com.keyboardbuilder.enterprise.dto.KeyboardBuild;
+import com.keyboardbuilder.enterprise.dto.Build;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -8,15 +8,15 @@ import retrofit2.Retrofit;
 import java.io.IOException;
 import java.util.List;
 
-public class BuildDAO implements iBuildDAO {
+public class BuildDAO implements IBuildDAO {
 
     @Override
-    public List<KeyboardBuild> fetchBuilds(String combinedName) throws IOException {
+    public List<Build> fetchBuilds(String combinedName) throws IOException {
         Retrofit retrofitInstance = RetrofitClientInstance.getRetrofitInstance();
         iBuildRetrofitDAO buildRetrofitDAO = retrofitInstance.create(iBuildRetrofitDAO.class);
-        Call<List<KeyboardBuild>> allBuilds = buildRetrofitDAO.getBuild(combinedName);
-        Response<List<KeyboardBuild>> execute = allBuilds.execute();
-        List<KeyboardBuild> builds = execute.body();
+        Call<List<Build>> allBuilds = buildRetrofitDAO.getBuild(combinedName);
+        Response<List<Build>> execute = allBuilds.execute();
+        List<Build> builds = execute.body();
         return builds;
     }
 }

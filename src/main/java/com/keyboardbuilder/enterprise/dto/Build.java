@@ -2,9 +2,7 @@ package com.keyboardbuilder.enterprise.dto;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-
-public @Data
-class KeyboardBuild {
+class Build {
     @SerializedName("id")
     private Integer id;
     @SerializedName("caseType")
