@@ -7,7 +7,7 @@ import java.util.List;
 public interface IBuildService {
     Build fetchById(int id);
 
-    void delete(int id) throw Exception;
+    void delete(int id) throws Exception;
 
     Build save(Build keyboardBuild) throws Exception;
 

@@ -1,6 +1,7 @@
 package com.keyboardbuilder.enterprise.services;
 
 import com.keyboardbuilder.enterprise.dao.IBuildDAO;
+import com.keyboardbuilder.enterprise.dao.IKeyboardBuildDAO;
 import com.keyboardbuilder.enterprise.dto.Build;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -14,7 +15,7 @@ public class BuildServiceStub implements IBuildService {
     private IBuildDAO buildDAO;
 
     @Autowired
-    private IKeyboardBuidDAO keyboardBuildDAO;
+    private IKeyboardBuildDAO keyboardBuildDAO;
 
 
     public BuildService() {

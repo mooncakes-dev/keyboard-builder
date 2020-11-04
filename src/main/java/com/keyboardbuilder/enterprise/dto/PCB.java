@@ -7,5 +7,5 @@ class PCB {
     private int layout;
     private String type;
     private String brand;
-    private Boolean hotSwapable;
+    private Boolean hotSwappable;
 }

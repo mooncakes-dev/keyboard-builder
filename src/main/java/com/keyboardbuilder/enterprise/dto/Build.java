@@ -2,20 +2,21 @@ package com.keyboardbuilder.enterprise.dto;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-class Build {
+
+public class Build {
     @SerializedName("id")
-    private Integer id;
+    private int id;
     @SerializedName("caseType")
-    private String caseType;
+    private KeyboardCase caseType;
     @SerializedName("layout")
     private int layout;
     @SerializedName("keyCaps")
-    private String keyCaps;
+    private KeyCaps keyCaps;
     @SerializedName("pcb")
-    private String pcb;
+    private PCB pcb;
     @SerializedName("plate")
-    private String plate;
+    private Plate plate;
     @SerializedName("keySwitches")
-    private String keySwitches;
+    private KeySwitches keySwitches;
 }
 
