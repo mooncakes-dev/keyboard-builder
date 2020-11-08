@@ -1,6 +1,7 @@
 package com.keyboardbuilder.enterprise.services;
 
 import com.keyboardbuilder.enterprise.dao.IBuildDAO;
+import com.keyboardbuilder.enterprise.dao.IKeyboardBuildDAO;
 import com.keyboardbuilder.enterprise.dto.Build;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -14,51 +15,34 @@ public class BuildServiceStub implements IBuildService {
     private IBuildDAO buildDAO;
 
     @Autowired
-    private IKeyboardBuidDAO keyboardBuildDAO;
-
-
-    public BuildService() {
-
-    }
-
-    public BuildService(IBuildDAO buildDAO) {
-
-        this.buildDAO = buildDAO;
-    }
+    private IKeyboardBuildDAO keyboardBuildDAO;
 
 
     @Override
     @Cacheable(value="build", key="#id")
-    public Build fetchById(int id) {
-        Build foundBuild = buildDAO.fetch(id);
-        return foundBuild;
+    public Build fetchById(int id) throws Exception {
+        return this.buildDAO.fetch(id);
     }
 
     @Override
     @CacheEvict(value="build", key="#id")
     public void delete(int id) throws Exception {
-        buildDAO.delete(id);
+        this.buildDAO.delete(id);
     }
 
     @Override
     public Build save(Build build) throws Exception {
-        return buildDAO.save(build);
+        return this.buildDAO.save(build);
     }
 
     @Override
     @Cacheable("builds")
-    public List<Build> fetchAll() {
+    public List<Build> fetchAll() throws Exception {
         return buildDAO.fetchAll();
     }
 
     @Override
-    @Cacheable("keyboardBuilds")
-    public List<Build> fetchKeyboardBuilds(String combinedName) throws IOException {
-        return keyboardBuildDAO.fetchKeyboardBuilds(combinedName);
-    }
-
-    @Override
-    public List<Build> fetchBuildByKeyboardBuildId(int keyboardBuildId) {
-        return buildDAO.fetchBuildByKeyboardBuildId(keyboardBuildId);
+    public List<Build> fetchBuilds(String combinedName) throws Exception {
+        return this.buildDAO.fetchBuilds(combinedName);
     }
 }

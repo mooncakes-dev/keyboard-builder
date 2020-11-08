@@ -19,4 +19,24 @@ public class BuildDAO implements IBuildDAO {
         List<Build> builds = execute.body();
         return builds;
     }
+
+    @Override
+    public List<Build> fetchAll() throws Exception {
+        return null;
+    }
+
+    @Override
+    public Build save(Build build) {
+        return null;
+    }
+
+    @Override
+    public Build fetch(int id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
 }
