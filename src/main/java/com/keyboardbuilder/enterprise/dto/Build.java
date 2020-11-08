@@ -2,20 +2,23 @@ package com.keyboardbuilder.enterprise.dto;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public @Data
 class Build {
-    @SerializedName("id")
-    private Integer id;
-    @SerializedName("caseType")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String caseType;
-    @SerializedName("layout")
     private int layout;
-    @SerializedName("keyCaps")
     private String keyCaps;
-    @SerializedName("pcb")
     private String pcb;
-    @SerializedName("plate")
     private String plate;
-    @SerializedName("keySwitches")
     private String keySwitches;
 }
 
