@@ -1,13 +1,20 @@
 package com.keyboardbuilder.enterprise;
 
 import com.keyboardbuilder.enterprise.dto.KeyboardBuild;
+import com.keyboardbuilder.enterprise.services.IKeyboardBuildService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class KeyboardBuilderController {
+
+    @Autowired
+    IKeyboardBuildService keyboardBuildService;
 
     /**
      * Handle the root (/) endpoint and return a start page
@@ -21,8 +28,9 @@ public class KeyboardBuilderController {
     }
 
     @GetMapping("/keyboardBuild")
-    public ResponseEntity fetchAllBuilds(){
-        return new ResponseEntity(HttpStatus.OK);
+    @ResponseBody
+    public List<KeyboardBuild> fetchAllBuilds(){
+        return keyboardBuildService.fetchAll();
     }
 
     @GetMapping("/keyboardBuild/id/")
@@ -31,8 +39,14 @@ public class KeyboardBuilderController {
     }
 
     @PostMapping(value="/keyboardBuild", consumes ="application/json", produces ="application/json" )
-    public KeyboardBuild createBuild(@RequestBody KeyboardBuild keyboardBuild){
-        return keyboardBuild;
+    public KeyboardBuild createBuild(@RequestBody KeyboardBuild keyboardBuild) {
+        KeyboardBuild newKeyboardBuild = null;
+        try {
+            newKeyboardBuild = keyboardBuildService.save(keyboardBuild);
+        } catch (Exception E) {
+
+        }
+        return newKeyboardBuild;
     }
 
     @DeleteMapping("/keyboardBuild/id/")
