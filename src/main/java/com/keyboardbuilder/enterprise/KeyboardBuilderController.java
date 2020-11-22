@@ -1,8 +1,10 @@
 package com.keyboardbuilder.enterprise;
 
-import com.keyboardbuilder.enterprise.dto.Build;
+import com.keyboardbuilder.enterprise.dto.KeyboardBuild;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class KeyboardBuilderController {
@@ -15,10 +17,27 @@ public class KeyboardBuilderController {
     @RequestMapping("/")
 
     public String index() {
-        Build build = new Build();
-        build.setKeySwitches("Liner Cream");
-        String keySwitches = build.getKeySwitches();
         return "start";
+    }
+
+    @GetMapping("/keyboardBuild")
+    public ResponseEntity fetchAllBuilds(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/keyboardBuild/id/")
+    public ResponseEntity fetchBuildById(@PathVariable("id") String id){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping(value="/keyboardBuild", consumes ="application/json", produces ="application/json" )
+    public KeyboardBuild createBuild(@RequestBody KeyboardBuild keyboardBuild){
+        return keyboardBuild;
+    }
+
+    @DeleteMapping("/keyboardBuild/id/")
+    public ResponseEntity deleteKeyboardBuild(@PathVariable("id") String id){
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     /**
@@ -42,6 +61,7 @@ public class KeyboardBuilderController {
     public String addNewBuild() {
         return "add-new-build";
     }
+
 
     /**
      * Handle a group buy page for keycaps (/keycaps-group-buy) endpoint and returns appropriate group buys
