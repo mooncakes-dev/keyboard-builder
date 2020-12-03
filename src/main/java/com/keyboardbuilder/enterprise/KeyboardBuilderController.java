@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +23,18 @@ public class KeyboardBuilderController {
      */
 
     @RequestMapping("/")
-
     public String index() {
+        return "start";
+    }
+
+    @RequestMapping("/saveBuild")
+    public String saveBuild(KeyboardBuild keyboardBuild) {
+        try {
+            keyboardBuildService.save(keyboardBuild);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "start";
+        }
         return "start";
     }
 
@@ -71,8 +82,16 @@ public class KeyboardBuilderController {
      */
 
     @RequestMapping("/add-new-build")
-
-    public String addNewBuild() {
+    public String addNewBuild(Model model) {
+        KeyboardBuild keyboardBuild = new KeyboardBuild();
+        keyboardBuild.setId(1);
+        keyboardBuild.setBuildName("Pono Build");
+        keyboardBuild.setCaseType("aluminum");
+        keyboardBuild.setKeySwitches("Sakura");
+        keyboardBuild.setKeyCaps("Pono");
+        keyboardBuild.setLayout(65);
+        keyboardBuild.setPlate("brass");
+        model.addAttribute(keyboardBuild);
         return "add-new-build";
     }
 

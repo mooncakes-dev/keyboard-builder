@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,68 +15,53 @@
 
 <div class="container m-5">
     <h3> Add New Build </h3>
-<form>
+    <p th:text="${keyboardBuild}"></p>
+<form action="#" th:action="@{/saveBuild}" th:object="${keyboardBuild}" method="POST">
+    <div class="form-group">
+        <label for="id">Name your build</label>
+        <input type="text" class="form-control" id="id" th:field="*{id}">
+    </div>
     <div class="form-group">
         <label for="buildName">Name your build</label>
-        <input type="text" class="form-control" id="buildName">
+        <input type="text" class="form-control" id="buildName" th:field="*{buildName}">
     </div>
     <div class="form-group">
         <label for="caseType">Case Type</label>
-        <select class="form-control" id="caseType">
-            <option>Polycarbonate</option>
-            <option>Aluminum</option>
-            <option>Poly Acrylic</option>
-        </select>
+        <input type="text" class="form-control" id="caseType" th:field="*{caseType}">
     </div>
     <div class="form-group">
         <label for="caseSize">Case Size</label>
-        <select class="form-control" id="caseSize">
-            <option>60%</option>
-            <option>65%</option>
-            <option>75%</option>
-        </select>
+        <input type="text" class="form-control" id="caseSize" th:field="*{layout}">
     </div>
     <div class="form-group">
-        <label>Hot Swappable PCB?</label>
+        <label>Hot Swappable?</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="isHotSwappable" id="isHotSwappable1" value="isHotSwappable" selected>
+            <input class="form-check-input" type="radio" name="isHotSwappable" id="isHotSwappable1" value="true" th:field="*{isHotSwappable}">
             <label class="form-check-label" for="isHotSwappable1">
                 Yes
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="notHotSwappable" id="notHotSwappable2" value="notHotSwappable">
+            <input class="form-check-input" type="radio" name="notHotSwappable" id="notHotSwappable2" value="false" th:field="*{isHotSwappable}">
             <label class="form-check-label" for="notHotSwappable2">
                 No
             </label>
         </div>
     </div>
     <div class="form-group">
-        <label for="plateType">Plate Type</label>
-        <select class="form-control" id="plateType">
-            <option>Polycarbonate</option>
-            <option>Brass</option>
-            <option>Aluminim</option>
-        </select>
+        <label for="plate">Plate Type</label>
+        <input type="text" class="form-control" id="plate" th:field="*{plate}">
     </div>
     <div class="form-group">
         <label for="keySwitches">Key Switches</label>
-        <select class="form-control" id="keySwitches">
-            <option>Kiwi</option>
-            <option>Alpaca</option>
-            <option>MX Sakura</option>
-            <option>MX Blue</option>
-            <option>MX Brown</option>
-            <option>MX Red</option>
-            <option>Cherry MX Silent Red</option>
-            <option>Cherry MX Silver</option>
-        </select>
+        <input type="text" class="form-control" id="keySwitches" th:field="*{keySwitches}">
+
     </div>
     <div class="form-group">
         <label for="keyCaps">Key Caps</label>
-        <input type="text" class="form-control" id="keyCaps">
+        <input type="text" class="form-control" id="keyCaps" th:field="*{keyCaps}">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button name="submit" type="submit" class="btn btn-primary" value="0">Submit</button>
 </form>
 </div>
 

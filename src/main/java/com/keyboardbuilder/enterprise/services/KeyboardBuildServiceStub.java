@@ -24,10 +24,11 @@ public class KeyboardBuildServiceStub implements IKeyboardBuildService {
 
 
     @Override
-    @Cacheable(value="build", key="#id")
+    @Cacheable(value="keyboardBuild", key="#id")
     public KeyboardBuild fetchById(int id) {
         KeyboardBuild keyboardBuild = new KeyboardBuild();
         keyboardBuild.setId(1);
+        keyboardBuild.setBuildName("Pono Build");
         keyboardBuild.setCaseType("aluminum");
         keyboardBuild.setKeySwitches("Sakura");
         keyboardBuild.setKeyCaps("Pono");
