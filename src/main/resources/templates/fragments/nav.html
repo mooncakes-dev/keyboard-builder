@@ -1,32 +1,15 @@
 <div th:fragment="navigation">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-        <a class="navbar-brand" href="/">Keyboard Builder</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">My Builds <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/guides">Guides</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Group Buys
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/keycaps-group-buy">Keycaps</a>
-                        <a class="dropdown-item" href="/switches-group-buy">Switches</a>
-                        <a class="dropdown-item" href="/cases-group-buy">Cases</a>
-                        <a class="dropdown-item" href="/keyboards-group-buy">Keyboards</a>
-                    </div>
-                </li>
-            </ul>
-            <span class="navbar-text">
-                <button type="button" class="btn btn-outline-danger">Sign Out</button>
-            </span>
-        </div>
-    </nav>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Keyboard Builder</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/">My Builds</a>
+            <a class="p-2 text-dark" href="/guides">Guides</a>
+            <div class="dropdown-menu p-2 text-dark" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item p-2 text-dark" href="/keycaps-group-buy">Keycaps</a>
+                <a class="dropdown-item p-2 text-dark" href="/switches-group-buy">Switches</a>
+                <a class="dropdown-item p-2 text-dark" href="/cases-group-buy">Cases</a>
+                <a class="dropdown-item p-2 text-dark" href="/keyboards-group-buy">Keyboards</a>
+            </div>
+        </nav>
+    </div>
 </div>

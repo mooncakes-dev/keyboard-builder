@@ -13,5 +13,9 @@ class KeyboardBuild {
     private Boolean isHotSwappable;
     private String plate;
     private String keySwitches;
+
+    public String toString() {
+        return buildName;
+    }
 }
 

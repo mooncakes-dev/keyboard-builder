@@ -23,7 +23,9 @@ public class KeyboardBuilderController {
      */
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        List<KeyboardBuild> keyboardBuilds = keyboardBuildService.fetchAll();
+        model.addAttribute("keyboardBuilds", keyboardBuilds);
         return "start";
     }
 
